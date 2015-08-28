@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<script>
+		var valueA,valueB,valueC;
+		var total=0;
+		var count =0;
+		
+		function myFunction() 
+		{
+			if (count < 3)  
+			{
+				//value = prompt("Enter a number");
+				
+				valueA = document.getElementById('fNameA').value;
+				if ( isNaN( parseInt(valueA) ) ) valueA=0;
+				document.getElementById('fNameA').value = '';
+				
+				valueB = document.getElementById('fNameB').value;
+				if ( isNaN( parseInt(valueB) ) ) valueB=0;
+				document.getElementById('fNameB').value = '';
+
+				valueC = document.getElementById('fNameC').value;
+				if ( isNaN( parseInt(valueC) ) )valueC=0;
+				document.getElementById('fNameC').value = '';
+
+
+				count ++;
+				total = total+parseInt(valueA)+parseInt(valueB)+parseInt(valueC);
+				document.getElementById("result").innerHTML = "Total = " + total;
+		
+    				document.getElementById("demo").innerHTML = "Attempts = " + count;
+			}
+			else  
+			{
+				document.getElementById("demo").innerHTML = "END";
+				document.getElementById("main").innerHTML = "";
+			}
+		}
+
+		function reset() 
+		{
+			total=0;
+			count =0;
+			document.getElementById("result").innerHTML = "Total = " + total;
+			//document.getElementById("result").innerHTML = "The total = " + total;
+			document.getElementById("demo").innerHTML = "Attempts = " + count;	
+		}		
+	</script>
+</head>
+
+<body>
+
+<div id="page" style="width:350px;background:#ECECEA;margin-left: 10px;border-style:solid;border-width:2px;border-color:black;">
+	
+	<div style="line-height: 70px;background:#74AFAD;text-align:center;height:70px;font-size: 36px;font-weight: bold;margin: 0 auto;vertical-align: middle;">
+		My Calculator
+	</div>
+	
+	<div id="top" style="line-height: 50px;vertical-align: middle;background:#558C89;text-align:left;height:50px;font-size: 18px;padding: 0px 0px 0px 10px;">
+		
+			<span id="demo">Please enter three numbers</span>
+		
+	</div>
+
+	<div id="main" style="text-align:left;background:#ECECEA;padding: 0px 0px 10px 10px;">
+		<p> Number A <input class="textBox" id="fNameA" type="text" maxlength="30" required/> </p>
+      
+		<p> Number B <input class="textBox" id="fNameB" type="text" maxlength="30" required/> </p>
+		<p> Number C <input class="textBox" id="fNameC" type="text" maxlength="30" required/> </p>
+		
+		<div id="buttons" style="text-align:center;">
+
+			<button type="button" onclick="myFunction()"> 
+				Add
+			</button>
+		
+		
+			<button type="button" onclick="reset()"> 
+				Reset
+			</button>
+		</div>
+	</div>
+	
+	<div id="bottom" style="line-height: 50px;vertical-align: middle;background:#D9853B;text-align:left;height:50px;font-size: 18px;color:white;padding: 0px 0px 0px 10px;">
+		<div id="result">No total yet</div>
+	</div>
+</div>
+</body>
+</html>
+
+
+
